@@ -2,71 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Drawing & Portrait Order Form</title>
+  <title>Service Order Form</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      background-color: #f4f4f4;
-    }
-    form {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
       max-width: 500px;
       margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    input, select, textarea {
+    input, select, button {
       width: 100%;
       padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      margin: 10px 0;
     }
     button {
-      background-color: #4CAF50;
+      background-color: #d10000;
       color: white;
-      padding: 12px;
       border: none;
-      border-radius: 5px;
       cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background-color: #45a049;
     }
   </style>
 </head>
 <body>
 
-  <h2>Drawing & Portrait Order Form</h2>
+  <h2>Place Your Order</h2>
 
-  <form action="http://localhost:5678/webhook-test/form" method="POST" enctype="multipart/form-data">
-    <label for="name">Full Name:</label>
-    <input type="text" id="name" name="name" required>
+  <form method="POST" action="https://your-n8n-webhook-url-here">
+    <label for="fullName">Full Name:</label>
+    <input type="text" name="Full Name" id="fullName" required>
 
-    <label for="email">Email Address:</label>
-    <input type="email" id="email" name="email" required>
+    <label for="email">Email:</label>
+    <input type="email" name="Email" id="email" required>
 
-    <label for="phone">Phone Number:</label>
-    <input type="tel" id="phone" name="phone">
+    <label for="mobile">Mobile Number:</label>
+    <input type="tel" name="Mobile Number" id="mobile" required>
 
-    <label for="service">Choose a Service:</label>
-    <select id="service" name="service" required>
-      <option value="">-- Select a Service --</option>
-      <option value="online_class">Online Drawing Class</option>
-      <option value="portrait_order">Portrait</option>
+    <label for="type">Type of Service:</label>
+    <select name="Type of service" id="type" required>
+      <option value="">-- Select --</option>
+      <option value="Portrait Drawing">Online Drawing class</option>
+      <option value="Online Drawing Class">Offline Drawing class</option>
+      <option value="Custom Artwork">Potrait order</option>
     </select>
-
-    <label for="details">Additional Details (size, style, class timing, etc.):</label>
-    <textarea id="details" name="details" rows="4" placeholder="Mention any specific requests here..."></textarea>
-
-    <label for="reference">Upload Reference Image (optional):</label>
-    <input type="file" id="reference" name="reference" accept="image/*">
 
     <button type="submit">Submit Order</button>
   </form>
+
 </body>
 </html>
